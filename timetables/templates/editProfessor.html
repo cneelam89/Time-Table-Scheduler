@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+        {%block content%}
+        {% load static %}
+
+		<div class="col-sm-6 offset-sm-3">
+		<table class="table table-hover bg-white mt-4">
+			<thead class="table-dark">
+			  <tr class="text-center">
+				<th scope="col" style="width:10%">ID</th>
+				<th scope="col" style="width:10%">Name</th>
+				<th scope="col" style="width:20%">Delete</th>
+			  </tr>
+			</thead>
+			<tbody>
+			 {% for pf in data %}
+			  <tr class="text-center" >
+
+				<td>{{pf.uid}}</td>
+				<td>{{pf.name}}</td>
+				<td class="text-center">
+				 {% comment %} <a href="/" class="btn btn-warning btn-sm">Edit</a> {% endcomment %}
+
+				 <form action="{% url 'deleteprofessors' pf.uid %}" method="post" class="d-inline"> {% csrf_token %}
+				 <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+				</form>
+
+				</td>
+			  </tr>
+			 {% endfor %}
+			</tbody>
+		  </table>
+
+		  <a href="{% url 'add_professors'%}"><h6>Back to Add Professors</h6></a>
+
+
+{% endblock %}

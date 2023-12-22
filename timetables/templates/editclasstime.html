@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {%block content%} {% load static %}
+
+<div class="col-sm-6 offset-sm-3">
+  <table class="table table-hover bg-white mt-4">
+    <thead class="table-dark">
+      <tr class="text-center">
+        <th scope="col" style="width: 10%">PID</th>
+        <th scope="col" style="width: 10%">Day</th>
+        <th scope="col" style="width: 20%">Timing</th>
+        <th scope="col" style="width: 20%">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for mt in class_time %}
+      <tr class="text-center">
+        <td>{{mt.pid}}</td>
+        <td>{{mt.day}}</td>
+        <td>{{mt.time}}</td>
+        <td class="text-center">
+
+          <form action="{% url 'deleteclasstime' mt.pid %}" method="post" class="d-inline"> {% csrf_token %}
+          <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+         </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{% url 'addTimings'%}"><h6>Back to Add Timings</h6></a>
+
+  {% endblock %}
+</div>

@@ -1,0 +1,44 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+{% for section in sections %}
+<h2 class="secHead">{{ section.section_id }} ({{ section.department }})</h2>
+    <table class="table table-hover bg-white mt-4">
+      <colgroup>
+        <col >
+        <col >
+        <col>
+        <col>
+        <col >
+        <col>
+      </colgroup>
+      <tr class="table-dark">
+        <th>Class #</th>
+        <th>Course</th>
+        <th>Department</th>
+        <th> Room</th>
+        <th>Professor</th>
+        <th>Class Timing</th>
+      </tr >
+      {% for class in schedule %}
+        {% if class.section == section.section_id %}
+        <tr class="text-center">
+          <th>{{class.section_id}}</th>
+          <td>{{class.course}}</td>
+          <td>{{class.department}}</td>
+          <td>{{class.room}}</td>
+          <td>{{class.professor}}</td>
+          <td>{{class.class_time}}</td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+
+{% endfor %}
+  <div class="extra">
+
+  </div>
+{% endblock %}

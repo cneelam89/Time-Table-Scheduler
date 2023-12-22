@@ -1,0 +1,69 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light"
+  style="background-color: #e6e6fa"
+>
+  <a class="navbar-brand" href="#">Time Table Generator</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"
+          >Home </a
+        >
+      </li>
+
+
+      {% if request.user.is_authenticated %}
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'add_professors' %}">Add Professors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'addRooms' %}">Add Rooms</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'addTimings' %}">Add Timings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'addCourses' %}">Add Courses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'addDepts' %}">Add Department</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'addSections' %}">Add Sections</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'timetable' %}">Generate Timetable</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+      </li>
+
+
+      {% endif %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'help' %}">Help</a>
+      </li>
+    </ul>
+  </div>
+</nav>

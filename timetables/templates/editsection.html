@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {%block content%} {% load static %}
+
+<div class="col-sm-6 offset-sm-3">
+  <table class="table table-hover bg-white mt-4">
+    <thead class="table-dark">
+      <tr class="text-center">
+        <th scope="col" style="width: 10%">Section Id</th>
+        <th scope="col" style="width: 10%">Department</th>
+        <th scope="col" style="width: 20%">Total Classes</th>
+        <th scope="col" style="width: 20%">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for sec in sections %}
+      <tr class="text-center">
+        <td>{{sec.section_id}}</td>
+        <td>{{sec.department}}</td>
+        <td>{{sec.num_class_in_week }}</td>
+        <td class="text-center">
+
+          <form action="{% url 'deletesection' sec.section_id %}" method="post" class="d-inline"> {% csrf_token %}
+          <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+         </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{% url 'addSections'%}"><h6>Back to Add Sections</h6></a>
+
+  {% endblock %}
+</div>

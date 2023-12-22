@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {%block content%} {% load static %}
+
+<div class="col-sm-6 offset-sm-3">
+  <table class="table table-hover bg-white mt-4">
+    <thead class="table-dark">
+      <tr class="text-center">
+        <th scope="col" style="width: 10%">Course Code</th>
+        <th scope="col" style="width: 10%">Course Name</th>
+        <th scope="col" style="width: 20%">Max number of students</th>
+        <th scope="col" style="width: 20%">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for crs in courses %}
+      <tr class="text-center">
+        <td>{{crs.course_number}}</td>
+        <td>{{crs.course_name}}</td>
+        <td>{{crs.max_numb_students}}</td>
+        <td class="text-center">
+
+          <form action="{% url 'deletecourse' crs.course_number %}" method="post" class="d-inline"> {% csrf_token %}
+          <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+         </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{% url 'addCourses'%}"><h6>Back to Add Courses</h6></a>
+
+  {% endblock %}
+</div>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {%block content%} {% load static %}
+
+<div class="col-sm-6 offset-sm-3">
+  <table class="table table-hover bg-white mt-4">
+    <thead class="table-dark">
+      <tr class="text-center">
+        <th scope="col" style="width: 10%">Department</th>
+        <th scope="col" style="width: 20%">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dept in departments %}
+      <tr class="text-center">
+        <td>{{dept.dept_name}}</td>
+        <td class="text-center">
+          <form action="{% url 'deletedepartment' dept.id %}" method="post" class="d-inline"> {% csrf_token %}
+          <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+         </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{% url 'addDepts'%}"><h6>Back to Add Departments</h6></a>
+
+  {% endblock %}
+</div>

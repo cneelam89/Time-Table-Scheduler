@@ -1,0 +1,50 @@
+{% include 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-sm-8 offset-2 mt-5">
+
+  <p>
+    Welcome to the Timetable Generator – your all-in-one solution for efficient
+    class scheduling! Our system is designed to meet specific constraints and
+    optimize scheduling objectives to ensure a streamlined academic experience.
+  </p>
+  <h5>Features:</h5>
+  <p><b> Intelligent Class Scheduling: </b></p>
+  <ul>
+    <li>
+      Efficiently schedules classes while adhering to seating capacity
+      constraints in each room.
+    </li>
+    <li>
+      Ensures no overlap in meeting times for classes of the same section.
+    </li>
+  </ul>
+
+  <p><b> Resource Allocation: </b></p>
+  <ul>
+    <li>
+      Allocates classrooms exclusively for one class at a time, preventing
+      double bookings.
+    </li>
+    <li>
+      Manages instructor assignments, avoiding simultaneous scheduling
+      conflicts.
+    </li>
+  </ul>
+
+  <p><b> Optimization Objectives: </b></p>
+  <ul>
+    <li>
+        Maximizes Classroom Utilization.
+    </li>
+    <li>
+        Minimizes Gaps Between Classes.
+    <li>
+        Even Distribution of Classes.
+    </li>
+  </ul>
+
+</div>
+
+{% endblock content %}
