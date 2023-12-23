@@ -41,7 +41,7 @@ class Schedule:
         self._classNumb = 0
         self._isFitnessChanged = True
         self._used_rooms = set()
-        self.professor_assignments = {}
+        
 
     def get_classes(self):
         self._isFitnessChanged = True
